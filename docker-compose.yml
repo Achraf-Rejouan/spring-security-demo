@@ -1,0 +1,15 @@
+services:
+  postgres:
+    container_name: postgres
+    image: postgres:latest
+    environment:
+      POSTGRES_USER: rejouan
+      POSTGRES_PASSWORD: 58426
+      POSTGRES_DB: springAppDB
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    restart: unless-stopped
+volumes:
+    pgdata:

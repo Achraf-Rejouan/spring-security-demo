@@ -2,18 +2,19 @@ spring:
   application:
     name: spring-security-jwt
   datasource:
-    url: jdbc:postgresql://localhost:5432/springAppDB
-    username: rejouan
-    password: 58426
+    url: jdbc:postgresql://${DB_URL}:${DB_PORT}/${DB_NAME}
+    username: ${DB_USERNAME}
+    password: ${DB_PASSWORD}
     driver-class-name: org.postgresql.Driver
   jpa:
     hibernate:
       ddl-auto: update
-    show-sql: true
+    database: postgresql
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    show-sql: false
     properties:
       hibernate:
         format_sql: true
-        dialect: org.hibernate.dialect.PostgreSQLDialect
-  jackson:
-    serialization:
-      write-dates-as-timestamps: false
+
+    app:
+      security:
